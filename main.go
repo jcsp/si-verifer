@@ -302,6 +302,8 @@ func randomRead(nPartitions int32) {
 
 		// Fully-baked client for actual consume
 		opts := []kgo.Opt{
+			kgo.ConsumeResetOffset(offset),
+			kgo.ConsumeTopics(*topic),
 			kgo.ConsumePartitions(offsets),
 		}
 
